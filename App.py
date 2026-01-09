@@ -14,9 +14,8 @@ st.set_page_config(page_title="Strategic AI Analyst (Pro)", layout="wide", page_
 st.title("📊 Strategic AI Analyst: The 'Density' Engine")
 st.markdown("Generates a **high-density** strategy deck with KPI Dashboards, Tables, and detailed commentary.")
 
-# --- 2. SIDEBAR ---
-st.sidebar.header("Configuration")
-api_key = st.sidebar.text_input("Gemini API Key", type="password")
+# --- 2. AUTOMATIC KEY (No Sidebar Needed) ---
+api_key = st.secrets["GOOGLE_API_KEY"]
 
 # --- 3. HELPER FUNCTIONS ---
 
@@ -304,4 +303,5 @@ if uploaded_file and api_key:
                 data=deck,
                 file_name=f"{clean_name}_Strategy_Deck.pptx",
                 mime="application/vnd.openxmlformats-officedocument.presentationml.presentation"
+
             )
